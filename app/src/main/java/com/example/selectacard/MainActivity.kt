@@ -8,6 +8,10 @@ import org.w3c.dom.Text
 import java.util.*
 
 class MainActivity : AppCompatActivity() {
+
+    lateinit var cardInteger: TextView
+    lateinit var cardSuit: TextView
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -16,11 +20,11 @@ class MainActivity : AppCompatActivity() {
         cardSelectButton.setOnClickListener {
             selectACard()
         }
+        cardInteger = findViewById(R.id.card_number)
+        cardSuit = findViewById(R.id.card_suit)
     }
 
     private fun selectACard() {
-        val resultIntText: TextView = findViewById(R.id.card_number)
-        val resultSuitText: TextView = findViewById(R.id.card_suit)
 
         val randomInt = Random().nextInt(13) + 1
         val randomSuitInt = Random().nextInt(4)
@@ -48,8 +52,8 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        resultIntText.text = cardNumber
-        resultSuitText.text = suit
+        cardInteger.text = cardNumber
+        cardSuit.text = suit
 
     }
 }
